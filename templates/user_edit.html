@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title%}Edit A User{% endblock%}
+{% block content %}
+
+<div>
+    <form method="get,post">
+        <section>
+            <label>First Name:
+                <input type="text" value="{{user.first_name}}">
+            </label>
+        </section>
+        <section>
+            <label> Last Name:
+                <input type="text" value="{{user.last_name}}">
+            </label>
+        </section>
+        <section>
+            <label>Image URL
+                <input type="text" placeholder="{{user.image_url}}">
+            </label>
+        </section>
+    </form>
+</div>
+
+<button>Add User</button>
+{% endblock %}

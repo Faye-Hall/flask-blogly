@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title%}{{user.first_name}}'s Details{% endblock%}
+{% block content %}
+<div>
+    <section>
+        <img src="{{user.image_url}}" width="100" height="100">
+    </section>
+    <section>
+        {{user.first_name}} {{user.last_name}}
+    </section>
+    <section>
+        <button>Edit</button><button>Delete</button>
+    </section>
+
+</div>
+
+{% endblock %}
