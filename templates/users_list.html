@@ -3,9 +3,11 @@
 {% block content %}
 <ul>
     {% for user in users %}
-    <li>{{user.first_name}} {{user.last_name}}</li>
+    <li><a href="/users/{{user.id}}"> {{user.first_name}} {{user.last_name}} </a></li>
     {% endfor %}
 </ul>
 
-<button>Add User</button>
+<form>
+    <button formaction="/users/new">Add User</button>
+</form>
 {% endblock %}

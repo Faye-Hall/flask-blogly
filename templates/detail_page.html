@@ -9,7 +9,14 @@
         {{user.first_name}} {{user.last_name}}
     </section>
     <section>
-        <button>Edit</button><button>Delete</button>
+        <form>
+            <button formaction="/users/{{user.id}}/edit">Edit</button>
+        </form>
+    </section>
+    <section>
+        <form>
+            <button name="delete_button" formaction="/users/{{user.id}}/delete" formmethod="POST">Delete</button>
+        </form>
     </section>
 
 </div>

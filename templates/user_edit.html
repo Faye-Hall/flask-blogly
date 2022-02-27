@@ -3,24 +3,26 @@
 {% block content %}
 
 <div>
-    <form method="get,post">
+    <form action="/users/{{user.id}}/edit" method="POST">
         <section>
-            <label>First Name:
-                <input type="text" value="{{user.first_name}}">
+            <label for="first_name">First Name:
+                <input name="first_name" type="text" value="{{user.first_name}}">
             </label>
         </section>
         <section>
-            <label> Last Name:
-                <input type="text" value="{{user.last_name}}">
+            <label for="last_name"> Last Name:
+                <input name="last_name" type="text" value="{{user.last_name}}">
             </label>
         </section>
         <section>
-            <label>Image URL
-                <input type="text" placeholder="{{user.image_url}}">
+            <label for="user_input">Image URL
+                <input name="image_url" type="text"
+                    value="https://www.freeiconspng.com/uploads/icon-user-blue-symbol-people-person-generic--public-domain--21.png">
             </label>
         </section>
+        <button>Add User</button>
     </form>
 </div>
 
-<button>Add User</button>
+
 {% endblock %}
