@@ -18,6 +18,16 @@
             <button name="delete_button" formaction="/users/{{user.id}}/delete" formmethod="POST">Delete</button>
         </form>
     </section>
+    <div>
+        <button><a href="/users/{{user.id}}/posts/new">Add a Post</a></button>
+    </div>
+    <div id="user's_posts">{{user.first_name}}'s Posts
+    </div>
+    <div>
+        <section>{% for each in user.posts %}
+            <li><a href="/posts/{{each.id}}">{{each.title}}</a></li>
+            {% endfor %}</section>
+    </div>
 
 </div>
 

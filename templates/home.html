@@ -1,3 +1,10 @@
 {% extends "base.html" %}
 {% block title%}Home Page{% endblock%}
-{% block content %}<h1>Welcome to Blogly!</h1>{% endblock %}
+{% block content %}<h1>Welcome to Blogly!</h1>
+<div>
+    <h2>
+        <a href="/users_list">Here are our users!</a>
+    </h2>
+    <h2><a href="/users/new">Add a new user!</a></h2>
+</div>
+{% endblock %}

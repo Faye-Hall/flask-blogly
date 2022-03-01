@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title%}New Post{% endblock%}
+{% block content %}
+<div>
+    <form id="new_post_form" action="/users/{{user.id}}/posts/new" method="POST">
+        <section>
+            <label for="title">Title
+                <input name="title" type="text">
+            </label>
+        </section>
+        <section>
+            <label for="content"> Content
+                <textarea name="content"></textarea>
+            </label>
+        </section>
+        <section id="post_cancel_button">
+            <button>Cancel</button>
+        </section>
+        <section id="post_add_button">
+            <button>Add</button>
+        </section>
+    </form>
+</div>
+
+
+{% endblock %}

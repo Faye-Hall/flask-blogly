@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title%}Edit Post{% endblock%}
+{% block content %}
+<div>
+    <form id="edit_post_form" action="" method="GET">
+        <section>
+            <label for="title">Title
+                <input name="title" type="text" value="{{post.title}}">
+            </label>
+        </section>
+        <section>
+            <label for="content"> Content
+                <textarea name="content">{{post.content}}</textarea>
+            </label>
+        </section>
+        <section id="post_cancel_button">
+            <button formmethod="GET" formaction="/">Cancel</button>
+        </section>
+        <section id="post_add_button">
+            <button formmethod="POST" formaction="/posts/{{post.id}}/edit">Edit</button>
+        </section>
+    </form>
+</div>
+
+
+{% endblock %}

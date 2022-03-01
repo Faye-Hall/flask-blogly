@@ -1,5 +1,5 @@
 from socket import ALG_SET_AEAD_ASSOCLEN
-from models import User, db
+from models import User, Post, db
 from app import app
 
 db.session.rollback()
@@ -10,16 +10,25 @@ db.create_all()
 
 # Id tables isn't empty, empty it
 User.query.delete()
+Post.query.delete()
 
 # Add users
-alan = User(first_name = "Alan", last_name = "Alda")
-joel = User(first_name = "Joel", last_name = "Burton")
-jane = User(first_name = "Jane", last_name = "Smith")
+gary = User(first_name = "Gary", last_name = "Mendez")
+elliot = User(first_name = "Elliot", last_name = "Stabler")
+michael = User(first_name = "Michael", last_name = "Westen")
 
 # Add new objects to session, so they'll persist
-db.session.add(alan)
-db.session.add(joel)
-db.session.add(jane)
+db.session.add(gary)
+db.session.add(elliot)
+db.session.add(michael)
 
 # Commit otherwise, this'll never get saved
+db.session.commit()
+
+first_post=Post(title = "1st Post",
+content = "This is the first post!",
+user_code = 1
+)
+
+db.session.add(first_post)
 db.session.commit()
