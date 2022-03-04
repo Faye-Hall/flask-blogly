@@ -13,14 +13,36 @@
                 <textarea name="content"></textarea>
             </label>
         </section>
+        <section>
+            <label for="tag-choice">Choose a tag:</label>
+
+
+            <fieldset>
+                {% for tag in tags %}
+
+                <section>
+                    <input list="tag-list" id="tag-choice" name="tag-choice" type="checkbox" value="{{tag.id}}">
+                    <label> {{tag.name}} </label>
+                </section>
+
+                {% endfor %}
+            </fieldset>
+
+
+
+        </section>
         <section id="post_cancel_button">
-            <button>Cancel</button>
+            <button formmethod="GET" formaction="/">Cancel</button>
         </section>
         <section id="post_add_button">
             <button>Add</button>
         </section>
     </form>
 </div>
+
+
+
+
 
 
 {% endblock %}

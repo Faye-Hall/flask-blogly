@@ -1,6 +1,8 @@
 """Models for Blogly."""
 from flask_sqlalchemy import SQLAlchemy
 import datetime
+
+from sqlalchemy import ForeignKey
 db = SQLAlchemy()
 
 def connect_db(app):
@@ -54,4 +56,40 @@ class Post(db.Model):
 
     person = db.relationship("User", backref= "posts")
 
+    
+class Tag(db.Model):
+    """Tags"""
+    __tablename__= "tags"
+
+    def __repr__(self):
+        return f"id= {self.id}, name={self.name}"
+
+    id = db.Column(db.Integer,
+                    primary_key=True
+                    )
+    name = db.Column(db.Text,
+                     nullable=False,
+                     unique=True
+                     )
+
+    post = db.relationship("Post",
+    secondary= "posttags", 
+     backref="tags")
+                    
+class PostTag(db.Model):
+    """PostTags"""
+
+    __tablename__= "posttags"
+    
+    def __repr__(self):
+        return f"post_id = {self.post_id}, tag_id = {self.tag_id}"
+
+    post_id = db.Column(db.Integer,
+                        db.ForeignKey(Post.id),
+                        primary_key=True
+                        )
+    tag_id = db.Column(db.Integer,
+                       db.ForeignKey(Tag.id),
+                        primary_key=True
+                       )
     

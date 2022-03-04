@@ -14,10 +14,25 @@
                                                 id="post_edit_button">Edit</button>
                                 </section>
                                 <section>
-                                        <button formaction="/posts/{{posts.id}}/delete"
+                                        <button formmethod="POST" formaction="/posts/{{posts.id}}/delete"
                                                 id="post_delete_button">Delete</button>
                                 </section>
                         </form>
                 </div>
+                <div>{% if posts.tags %}
+                        <h3>Tags</h3>
+                        <ul>
+
+
+                                {% for tag in posts.tags %}
+                                <li><a href="/tags/{{tag.id}}">{{tag.name}}</a></li>
+                                {% endfor %}
+                                {% endif %}
+                        </ul>
+
+                </div>
+
 
                 {% endblock %}
+
+                <
